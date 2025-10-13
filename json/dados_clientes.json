@@ -1,0 +1,9 @@
+{
+    "cliente1":
+    {
+        "nome":"Joe",
+        "idade":"50",
+        "profissão":"carpinteiros",
+        "cidade":"Alagoinhas-BA"
+    }
+}
