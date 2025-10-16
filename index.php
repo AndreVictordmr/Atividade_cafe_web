@@ -13,7 +13,7 @@
     <body>
         <h1>dados do Cliente</h1>
         <?=dadosCliente($dados['cliente1']);?>
-        <div>
+        <div id="ender">
             <form action="" method="post">
                 <label for="cep">Informar Cep: </label>
                 <input type="text" name="cep" id="cep">
