@@ -1,3 +1,7 @@
+    <?php
+        require_once "src/listaDDD.php";
+        require_once "src/pegarCEP.php";
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,23 +11,24 @@
         <title>Document</title>
     </head>
     <body>
-    <?php
-        $arquivo = "json/dados_clientes.json";
+        <h1>dados do Cliente</h1>
+        <?=dadosCliente($dados['cliente1']);?>
+        <div>
+            <form action="" method="post">
+                <label for="cep">Informar Cep: </label>
+                <input type="text" name="cep" id="cep">
+                <button type="submit">Buscar Endereço</button>
+            </form>
+            <?php
+                if($_SERVER['REQUEST_METHOD']==="POST"){
+                    $cep =trim($_POST['cep']);
+                    
+                    pegarEndereco($cep);
 
-        $resposta = file_get_contents($arquivo);
-        $dados = json_decode($resposta, true);
+                }
+            ?>
 
-        function dadosCliente($cliente){
-        echo "
-            <h1> Dados do Cliente </h1>
-            <p>Nome :: ". $cliente['nome']."</p>";
-        echo"<p>Idade:: ".$cliente['idade']."</p>";
-        echo"<p>Profissao:: ".$cliente['profissão']."</p>";
-        echo"<p>Cidade:: ".$cliente['cidade']."</p>";
-        }
-
-        dadosCliente($dados['cliente1'])
-    ?>
+        </div>
         
     </body>
 </html>
